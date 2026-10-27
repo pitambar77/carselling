@@ -1,0 +1,295 @@
+/* ─────────────────────────────────────────────────────────────
+   Bright & Playful — light, colourful style layer.
+   Active when <html data-style="playful">.
+   Palette: plum ink #1F1A3A, coral #FF5A4E, teal #14B8A6, sunny #FFC83D, lilac page #F7F4FF.
+   Signature: chunky outlined cards with offset shadows, pill buttons, bouncy motion.
+   Colour utilities are remapped in playful-utilities.css (generated).
+   ───────────────────────────────────────────────────────────── */
+
+html[data-style='playful'] {
+  color-scheme: light;
+  --pf-ink: #1f1a3a;
+  --pf-coral: #ff5a4e;
+  --pf-orange: #ff8a3d;
+  --pf-teal: #14b8a6;
+  --pf-sun: #ffc83d;
+  --pf-lilac: #f7f4ff;
+  --pf-shadow: 3px 3px 0 var(--pf-ink);
+  --pf-shadow-lg: 6px 6px 0 var(--pf-ink);
+  --pf-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --chart-text: #6f6890;
+  --chart-grid: #ece7fa;
+  --chart-navy: #2b1f5c;
+  --chart-cursor: #f3efff;
+  --chart-blue: #ff5a4e;
+  --tilt-glow: rgba(255, 255, 255, 0.7);
+}
+
+html[data-style='playful'],
+html[data-style='playful'] body {
+  background: var(--pf-lilac);
+  color: #2e2850;
+}
+html[data-style='playful'] body {
+  background-image: radial-gradient(circle at 1px 1px, rgba(31, 26, 58, 0.07) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+html[data-style='playful'] body::before {
+  background: #ffffff;
+}
+html[data-style='playful'] ::selection {
+  background: #ffd3cd;
+}
+html[data-style='playful'] h1,
+html[data-style='playful'] h2,
+html[data-style='playful'] h3,
+html[data-style='playful'] h4,
+html[data-style='playful'] .font-display {
+  font-family: 'Fredoka', 'Figtree', system-ui, sans-serif;
+  font-stretch: normal !important;
+  letter-spacing: 0;
+  color: var(--pf-ink);
+}
+html[data-style='playful'] h1 {
+  font-weight: 700;
+}
+html[data-style='playful'] .text-white h1,
+html[data-style='playful'] h1.text-white,
+html[data-style='playful'] h2.text-white,
+html[data-style='playful'] h3.text-white,
+html[data-style='playful'] .font-display.text-white {
+  color: #fff;
+}
+html[data-style='playful'] .eyebrow {
+  color: var(--pf-teal);
+  letter-spacing: 0.1em;
+}
+html[data-style='playful'] .min-h-screen.bg-mist-50 {
+  background: transparent;
+}
+
+/* Chunky outlined cards */
+html[data-style='playful'] .card {
+  border: 2px solid var(--pf-ink);
+  border-radius: 20px;
+  box-shadow: var(--pf-shadow);
+  background: #fff;
+}
+html[data-style='playful'] .card.tilt {
+  transition: transform 0.35s var(--pf-bounce), box-shadow 0.35s var(--pf-bounce);
+}
+html[data-style='playful'] .card.tilt:hover,
+html[data-style='playful'] .hover\:shadow-lift:hover {
+  box-shadow: var(--pf-shadow-lg);
+}
+html[data-style='playful'] .card.tilt:hover {
+  translate: -3px -3px;
+}
+html[data-style='playful'] .shadow-pop {
+  box-shadow: 6px 6px 0 var(--pf-ink);
+  border: 2px solid var(--pf-ink);
+}
+html[data-style='playful'] .rounded-xl {
+  border-radius: 16px;
+}
+html[data-style='playful'] .rounded-2xl {
+  border-radius: 24px;
+}
+html[data-style='playful'] header.sticky {
+  border-bottom: 2px solid var(--pf-ink);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+/* Pill buttons with a press-down feel */
+html[data-style='playful'] .btn {
+  border-radius: 999px;
+  transition: transform 0.25s var(--pf-bounce), box-shadow 0.25s var(--pf-bounce), background-color 0.15s;
+}
+html[data-style='playful'] .btn-primary,
+html[data-style='playful'] .btn-secondary,
+html[data-style='playful'] .btn-dark,
+html[data-style='playful'] .btn-danger {
+  border: 2px solid var(--pf-ink);
+  box-shadow: var(--pf-shadow);
+}
+html[data-style='playful'] .btn-primary {
+  background: linear-gradient(135deg, var(--pf-coral), var(--pf-orange));
+  color: #fff;
+}
+html[data-style='playful'] .btn-secondary {
+  background: #fff;
+  color: var(--pf-ink);
+}
+html[data-style='playful'] .btn-dark {
+  background: var(--pf-ink);
+  color: #fff;
+}
+html[data-style='playful'] .btn-primary:hover:not(:disabled),
+html[data-style='playful'] .btn-secondary:hover:not(:disabled),
+html[data-style='playful'] .btn-dark:hover:not(:disabled),
+html[data-style='playful'] .btn-danger:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--pf-ink);
+}
+html[data-style='playful'] .btn-primary:active:not(:disabled),
+html[data-style='playful'] .btn-secondary:active:not(:disabled),
+html[data-style='playful'] .btn-dark:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--pf-ink);
+}
+html[data-style='playful'] .btn-secondary:hover:not(:disabled) {
+  background: #fff7d6;
+}
+html[data-style='playful'] .btn-ghost:hover {
+  background: #efeafb;
+}
+
+/* Inputs */
+html[data-style='playful'] .input {
+  border: 2px solid #d9d2f0;
+  border-radius: 14px;
+}
+html[data-style='playful'] .input:focus {
+  border-color: var(--pf-coral);
+  box-shadow: 0 0 0 4px rgba(255, 90, 78, 0.18);
+}
+html[data-style='playful'] .input-error {
+  border-color: #e5484d;
+}
+html[data-style='playful'] input[type='checkbox']:checked {
+  background-color: var(--pf-coral);
+  border-color: var(--pf-coral);
+}
+html[data-style='playful'] input[type='range'] {
+  accent-color: var(--pf-coral);
+}
+
+/* Tables */
+html[data-style='playful'] .table th {
+  background: #fff7d6;
+  color: var(--pf-ink);
+  border-bottom: 2px solid var(--pf-ink);
+}
+html[data-style='playful'] .table tbody tr:hover td {
+  background: #fff0ee;
+}
+
+/* Badges get a little bounce on hover via their ring */
+html[data-style='playful'] .ring-1.rounded-full {
+  border-radius: 999px;
+}
+
+/* Car stage: pastel studio with dotted floor */
+html[data-style='playful'] .studio {
+  background: radial-gradient(60% 55% at 70% 25%, rgba(255, 200, 61, 0.45), transparent 70%),
+    radial-gradient(55% 60% at 15% 30%, rgba(20, 184, 166, 0.25), transparent 70%),
+    linear-gradient(180deg, #ffe9e5 0%, #efe7ff 64%, #e3dcf7 64.5%, #d9d0f3 100%);
+}
+
+/* Dark bands become a vibrant gradient */
+html[data-style='playful'] .hero-band,
+html[data-style='playful'] aside.bg-ink-950,
+html[data-style='playful'] footer.bg-ink-950 {
+  background: linear-gradient(130deg, #3b1d8f 0%, #6a2fd8 45%, #ff5a4e 100%);
+}
+html[data-style='playful'] footer.bg-ink-950 {
+  background: linear-gradient(130deg, #24184f 0%, #3b1d8f 100%);
+}
+html[data-style='playful'] .lg\:block > .bg-ink-950,
+html[data-style='playful'] .bg-ink-950.px-3 {
+  background: linear-gradient(180deg, #2b1f5c 0%, #3b1d8f 100%);
+}
+
+/* Floating blobs in the hero (playful only) */
+.hero-blobs {
+  display: none;
+}
+html[data-style='playful'] .hero-blobs {
+  display: block;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+html[data-style='playful'] .hero-blobs span {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(2px);
+  opacity: 0.9;
+  animation: blob-float 9s ease-in-out infinite;
+}
+html[data-style='playful'] .hero-blobs span:nth-child(1) {
+  width: 220px;
+  height: 220px;
+  background: var(--pf-sun);
+  top: -60px;
+  right: 8%;
+}
+html[data-style='playful'] .hero-blobs span:nth-child(2) {
+  width: 140px;
+  height: 140px;
+  background: var(--pf-teal);
+  bottom: 18%;
+  left: -40px;
+  animation-delay: -3s;
+}
+html[data-style='playful'] .hero-blobs span:nth-child(3) {
+  width: 90px;
+  height: 90px;
+  background: #ff9ecb;
+  top: 30%;
+  left: 46%;
+  animation-delay: -6s;
+}
+@keyframes blob-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(16px, -22px) scale(1.06);
+  }
+  66% {
+    transform: translate(-12px, 12px) scale(0.95);
+  }
+}
+html[data-style='playful'] .text-gradient {
+  color: var(--pf-sun);
+}
+
+/* Bouncier reveals and floats */
+html[data-style='playful'] .reveal {
+  transition: transform 0.7s var(--pf-bounce), opacity 0.5s ease;
+}
+html[data-style='playful'] .reveal[data-shown='false'] {
+  transform: translateY(26px) scale(0.97);
+}
+
+/* Style toggle active pill */
+html[data-style='playful'] .style-toggle-on {
+  background: var(--pf-coral) !important;
+  color: #fff !important;
+  box-shadow: 2px 2px 0 var(--pf-ink) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-style='playful'] .hero-blobs span {
+    animation: none;
+  }
+  html[data-style='playful'] .card.tilt:hover {
+    translate: none;
+  }
+}
+
+/* Text sitting on the vibrant gradient bands */
+html[data-style='playful'] .hero-band .eyebrow,
+html[data-style='playful'] aside.bg-ink-950 .eyebrow {
+  color: #ffe58a;
+}
+
+/* Demo notices read as information (teal), not as errors */
+html[data-style='playful'] .mock-notice {
+  background: #e6faf7;
+  border-color: #8fdfd4;
+  color: #0b6f64;
+}

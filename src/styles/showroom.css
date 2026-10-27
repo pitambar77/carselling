@@ -1,0 +1,343 @@
+/* ─────────────────────────────────────────────────────────────
+   Midnight Showroom — dark, glossy style layer.
+   Active when <html data-style="showroom">. Classic stays the default CSS.
+   Colour utilities are remapped in showroom-utilities.css (generated);
+   this file styles components, surfaces and the interactive effects.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* chart tokens (classic) */
+  --chart-text: #6e7b90;
+  --chart-grid: #e9edf3;
+  --chart-navy: #18263d;
+  --chart-cursor: #f2f5fa;
+  --chart-blue: #3d66e8;
+  --tilt-glow: rgba(255, 255, 255, 0.55);
+}
+
+html[data-style='showroom'] {
+  color-scheme: dark;
+  --sr-page: #05080f;
+  --sr-sunken: #0a1120;
+  --sr-surface: rgba(15, 23, 40, 0.78);
+  --sr-surface-solid: #0f1728;
+  --sr-line: rgba(255, 255, 255, 0.08);
+  --sr-accent: #2f7bff;
+  --sr-accent-2: #22d3ee;
+  --sr-accent-text: #7fb4ff;
+  --chart-text: #8693ab;
+  --chart-grid: rgba(255, 255, 255, 0.07);
+  --chart-navy: #c9d6f0;
+  --chart-cursor: rgba(255, 255, 255, 0.05);
+  --chart-blue: #4e95ff;
+  --tilt-glow: rgba(64, 138, 255, 0.28);
+}
+
+/* Page */
+html[data-style='showroom'],
+html[data-style='showroom'] body {
+  background: var(--sr-page);
+  color: #dde4f1;
+}
+html[data-style='showroom'] body {
+  background-image: radial-gradient(1200px 600px at 85% -10%, rgba(47, 123, 255, 0.16), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(34, 211, 238, 0.07), transparent 60%);
+  background-attachment: fixed;
+}
+html[data-style='showroom'] body::before {
+  background: var(--sr-page);
+}
+html[data-style='showroom'] ::selection {
+  background: rgba(64, 138, 255, 0.35);
+}
+html[data-style='showroom'] h1,
+html[data-style='showroom'] h2,
+html[data-style='showroom'] h3,
+html[data-style='showroom'] h4 {
+  color: #f4f7fd;
+}
+html[data-style='showroom'] h1 {
+  font-stretch: 118%;
+  letter-spacing: -0.015em;
+}
+html[data-style='showroom'] .bg-mist-50.min-h-screen,
+html[data-style='showroom'] .min-h-screen.bg-white {
+  background: transparent;
+}
+
+/* Glass surfaces */
+html[data-style='showroom'] .card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)) , var(--sr-surface);
+  border-color: var(--sr-line);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+html[data-style='showroom'] .shadow-card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+html[data-style='showroom'] .shadow-lift,
+html[data-style='showroom'] .hover\:shadow-lift:hover {
+  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.25), 0 18px 40px -16px rgba(47, 123, 255, 0.45);
+}
+html[data-style='showroom'] .shadow-pop {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 30px 60px -20px rgba(0, 0, 0, 0.85);
+}
+html[data-style='showroom'] .backdrop-blur {
+  backdrop-filter: blur(16px) saturate(1.2);
+}
+html[data-style='showroom'] header.sticky {
+  background: rgba(5, 8, 15, 0.72);
+  border-color: var(--sr-line);
+}
+
+/* Form controls */
+html[data-style='showroom'] .input {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f4f7fd;
+}
+html[data-style='showroom'] .input::placeholder {
+  color: #5d6a83;
+}
+html[data-style='showroom'] .input:focus {
+  border-color: #4e95ff;
+  box-shadow: 0 0 0 3px rgba(64, 138, 255, 0.28), 0 0 24px -6px rgba(64, 138, 255, 0.5);
+}
+html[data-style='showroom'] .input:disabled {
+  background: rgba(255, 255, 255, 0.02);
+  color: #5d6a83;
+}
+html[data-style='showroom'] .input-error {
+  border-color: #ff8a8a;
+}
+html[data-style='showroom'] select.input option {
+  background: #0f1728;
+  color: #f4f7fd;
+}
+html[data-style='showroom'] .label {
+  color: #dde4f1;
+}
+html[data-style='showroom'] .field-hint {
+  color: #7d8aa3;
+}
+html[data-style='showroom'] .field-error {
+  color: #ff8a8a;
+}
+html[data-style='showroom'] input[type='checkbox'] {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+html[data-style='showroom'] input[type='checkbox']:checked {
+  background-color: var(--sr-accent);
+  border-color: var(--sr-accent);
+}
+html[data-style='showroom'] input[type='range'] {
+  accent-color: #4e95ff;
+}
+
+/* Buttons */
+html[data-style='showroom'] .btn-primary {
+  background: linear-gradient(135deg, #2f7bff 0%, #1f5fe0 60%, #2a9df4 100%);
+  box-shadow: 0 0 0 1px rgba(120, 170, 255, 0.35) inset, 0 8px 24px -8px rgba(47, 123, 255, 0.8);
+}
+html[data-style='showroom'] .btn-primary:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 0 0 1px rgba(150, 190, 255, 0.5) inset, 0 10px 30px -6px rgba(47, 123, 255, 0.95);
+}
+html[data-style='showroom'] .btn-dark {
+  background: #f4f7fd;
+  color: #05080f;
+}
+html[data-style='showroom'] .btn-dark:hover {
+  background: #ffffff;
+}
+html[data-style='showroom'] .btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #f4f7fd;
+}
+html[data-style='showroom'] .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+html[data-style='showroom'] .btn-ghost {
+  color: #c4cee0;
+}
+html[data-style='showroom'] .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+html[data-style='showroom'] .btn-danger {
+  background: #e5484d;
+  box-shadow: 0 8px 20px -8px rgba(229, 72, 77, 0.8);
+}
+html[data-style='showroom'] .btn-icon {
+  color: #9ca9c0;
+}
+html[data-style='showroom'] .btn-icon:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* Tables */
+html[data-style='showroom'] .table th {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--sr-line);
+  color: #7d8aa3;
+}
+html[data-style='showroom'] .table td {
+  border-color: rgba(255, 255, 255, 0.05);
+  color: #dde4f1;
+}
+html[data-style='showroom'] .table tbody tr:hover td {
+  background: rgba(64, 138, 255, 0.05);
+}
+html[data-style='showroom'] .eyebrow {
+  color: #6fd3ff;
+  text-shadow: 0 0 18px rgba(34, 211, 238, 0.45);
+}
+
+/* Car renders sit on a spotlit showroom floor */
+html[data-style='showroom'] .studio {
+  background: radial-gradient(70% 55% at 50% 38%, rgba(96, 150, 255, 0.22), transparent 70%),
+    linear-gradient(180deg, #0c1424 0%, #0a1020 62%, #111c33 62.5%, #070c17 100%);
+}
+
+/* Scrollbars */
+html[data-style='showroom'] * {
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+/* Things that must stay light in every style (number plates, paper documents) */
+.keep-light {
+  color-scheme: light;
+}
+
+/* Style toggle */
+html[data-style='showroom'] .style-toggle:not(.bg-white\/10) {
+  background: rgba(255, 255, 255, 0.07);
+}
+html[data-style='showroom'] .style-toggle-on.bg-accent-600 {
+  box-shadow: 0 0 16px rgba(47, 123, 255, 0.8);
+}
+
+/* ── Hero stage (home): grid floor + light sweep, showroom only ── */
+.hero-stage-grid {
+  display: none;
+}
+html[data-style='showroom'] .hero-stage-grid {
+  display: block;
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 55%;
+  background-image: linear-gradient(rgba(96, 150, 255, 0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(96, 150, 255, 0.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transform: perspective(500px) rotateX(62deg);
+  transform-origin: bottom;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 85%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 85%);
+  pointer-events: none;
+}
+html[data-style='showroom'] .hero-sweep {
+  background: linear-gradient(100deg, transparent 30%, rgba(120, 170, 255, 0.12) 45%, transparent 60%);
+  background-size: 250% 100%;
+  animation: sweep 7s ease-in-out infinite;
+}
+@keyframes sweep {
+  0% {
+    background-position: 120% 0;
+  }
+  60%,
+  100% {
+    background-position: -40% 0;
+  }
+}
+.text-gradient {
+  color: inherit;
+}
+html[data-style='showroom'] .text-gradient {
+  background: linear-gradient(90deg, #ffffff 0%, #9cc3ff 50%, #6fe3ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Interactive effects (both styles) ── */
+.tilt {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+}
+.tilt.is-tilting {
+  transition: transform 0.05s linear, box-shadow 0.25s ease;
+}
+.tilt::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.25s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--tilt-glow), transparent 45%);
+  mix-blend-mode: soft-light;
+  z-index: 2;
+}
+html[data-style='showroom'] .tilt::after {
+  mix-blend-mode: screen;
+}
+.tilt.is-tilting::after {
+  opacity: 1;
+}
+
+.reveal {
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.6s ease;
+}
+.reveal[data-shown='false'] {
+  transform: translateY(18px);
+  opacity: 0.45;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.float-y {
+  animation: float-y 5s ease-in-out infinite;
+}
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(47, 123, 255, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgba(47, 123, 255, 0);
+  }
+}
+.pulse-ring {
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt {
+    transform: none !important;
+  }
+  .reveal[data-shown='false'] {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Compare tray sits above the demo navigator button on phones */
+.compare-tray-pos {
+  bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+}
+@media (min-width: 640px) {
+  .compare-tray-pos {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+}
